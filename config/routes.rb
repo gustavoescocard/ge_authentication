@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'welcome/index'
+  get "novousuario" => "users#new"
+  resources :users, except: [:index]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :app, only: [:index]
+  root "welcome#index"
 end

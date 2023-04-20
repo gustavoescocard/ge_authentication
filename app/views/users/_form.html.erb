@@ -1,0 +1,32 @@
+<%= form_with model: @user do |form| %>
+	<% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <%= @user.errors.full_messages.each { |message| message } %>
+    </div>
+	<% end %>
+
+	<div class="mb-3">
+    <%= form.label "Nome", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+	</div>
+
+	<div class="mb-3">
+    <%= form.label "Email", class: "form-label" %>
+    <%= form.email_field :email, class: "form-control" %>
+	</div>
+
+	<div class="mb-3">
+    <%= form.label "Senha", class: "form-label" %>
+    <%= form.password_field :password, class: "form-control" %>
+	</div>
+
+	<div class="mb-3">
+    <%= form.label "Confirmar Senha", class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-control" %>
+	</div>
+
+	<div class="mb-3 mt-2">
+    <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+    <%= form.submit 'Cadastrar', class: "btn btn-primary" %>
+	</div>
+<% end %>

@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <h1>App para Cadastrar Usuários</h1>
+
+  <p class="text-muted">Atualmente existem <%= @total_users || 0 %> usuários cadastrados</p>
+  <%= link_to "Cadastrar Novo Usuário", novousuario_path, class: "btn btn-primary" %>
+</div>
