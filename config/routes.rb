@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  get "welcome/index"
-  get "login" => "sessions#new"
-
-  get "novousuario" => "users#new"
+  
+  get "novousuario", to: "users#new"
   resources :users, except: [:index]
-
-  resources :sessions, only: [:create, :destroy]
-
-  resources :app, only: [:index]
+  
+  get "login", to: "sessions#new"
+  delete "logout", to: "sessions#destroy"
+  resources :sessions, only: [:create]
+  
+  get "welcome/index", to: "welcome#index"
   root "welcome#index"
 end
